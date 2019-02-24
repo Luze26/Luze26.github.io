@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="618px" viewBox="0 0 1440 618" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Path 9 Copy@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="77.1063643%" id="linearGradient-1">
+            <stop stop-color="#E1F0FF" offset="0%"></stop>
+            <stop stop-color="#F8FAFE" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home" transform="translate(0.000000, -279.000000)" fill="url(#linearGradient-1)">
+            <g id="hero" transform="translate(-131.000000, 47.000000)">
+                <g id="bg-elements" transform="translate(0.000000, 49.000000)">
+                    <path d="M148.640373,461.980246 C460.71909,414.391048 365.592358,225.917203 579.307045,192.200189 C793.021732,158.483176 846.806282,309.868228 1112.79968,309.868228 C1378.79309,309.868228 1567.09025,81.628854 1714.21382,454.871605 C1861.33739,828.114356 1654.18794,966.528939 1654.18794,966.528939 L136.300705,966.528939 C136.300705,966.528939 -163.438344,509.569445 148.640373,461.980246 Z" id="Path-9-Copy" transform="translate(886.829734, 576.915290) scale(-1, 1) rotate(1.000000) translate(-886.829734, -576.915290) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,59 @@
+.gradientColorPicker .gradientPreview {
+    height: 18px;
+    border-radius: 8px;
+    border: solid 1px #868686;
+}
+
+.gradientColorPicker-gradient {
+    position: relative;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.gradientColorPicker-handles {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    left: 6px;
+    right: 12px;
+}
+
+.gradientColorPicker-handle {
+    position: absolute;
+    cursor: pointer;
+    margin-left: -6px;
+    padding: 4px;
+    opacity: 0.5;
+}
+
+.gradientColorPicker-handle:hover, .gradientColorPicker-handle_selected {
+    padding: 3px;
+    opacity: 1;
+}
+
+.gradientColorPicker-handle-inner {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #FFF;
+    box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+.gradientColorPicker-handle:hover .gradientColorPicker-handle-inner, .gradientColorPicker-handle_selected .gradientColorPicker-handle-inner {
+    width: 12px;
+    height: 12px;
+}
+
+.gradientColorPicker-remove {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.gradientColorPicker-remove-icon {
+    margin-right: 5px;
+    font-size: 14px;
+}

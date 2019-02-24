@@ -1,0 +1,240 @@
+@font-face {
+  font-family: 'portfolioIcons';
+  src:  url('./icomoon.eot?fh68z9');
+  src:  url('./icomoon.eot?fh68z9#iefix') format('embedded-opentype'),
+    url('./icomoon.ttf?fh68z9') format('truetype'),
+    url('./icomoon.woff?fh68z9') format('woff'),
+    url('./icomoon.svg?fh68z9#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="i-"], [class*=" i-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'portfolioIcons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i-php:before {
+  content: "\e910";
+}
+.i-php:hover:before {
+  color: #777bb4;
+}
+.i-neo4j:before {
+  content: "\e90f";
+}
+.i-neo4j:hover:before {
+  color: #008cc1;
+}
+.i-zf:before {
+  content: "\e90e";
+}
+.i-zf:hover:before {
+  color: #68c32f;
+}
+.i-cross:before {
+  content: "\e900";
+}
+.i-email:before {
+  content: "\e901";
+}
+.i-arrow-right3:before {
+  content: "\e902";
+}
+.i-arrow-right1:before {
+  content: "\e903";
+}
+.i-apple:before, .i-apple_alt:before {
+  content: "\e90d";
+}
+.i-apple:hover:before {
+  color: #000;
+}
+.i-android:before, .i-android_alt:before {
+  content: "\e904";
+}
+.i-android:hover:before {
+  color: #A5C736;
+}
+.i-github:before {
+  content: "\e905";
+}
+.i-twitter:before {
+  content: "\e906";
+}
+.i-linkedin:before {
+  content: "\e907";
+}
+.i-arrow-right2:before {
+  content: "\e908";
+}
+.i-tensorflow .path1:before {
+  content: "\e909";
+  color: #C2C2C2;
+}
+.i-tensorflow .path2:before {
+  content: "\e90a";
+  margin-left: -0.951171875em;
+  color: #C2C2C2;
+}
+.i-tensorflow .path3:before {
+  content: "\e90b";
+  margin-left: -0.951171875em;
+  color: #9B9B9B;
+}
+.i-tensorflow .path4:before {
+  content: "\e90c";
+  margin-left: -0.951171875em;
+  color: #757575;
+}
+.i-tensorflow:hover .path1:before {
+  color: rgb(246, 189, 58);
+}
+.i-tensorflow:hover .path2:before {
+  color: rgb(246, 189, 58);
+}
+.i-tensorflow:hover .path3:before {
+  color: rgb(235, 140, 35);
+}
+.i-tensorflow:hover .path4:before {
+  color: rgb(227, 90, 43);
+}
+.i-html5:before {
+  content: "\f13d";
+}
+.i-d3:before {
+  content: "\f119";
+}
+.i-angular:before {
+  content: "\f103";
+}
+.i-angular:hover:before {
+  color: #E23237;
+}
+.i-gulp:before {
+  content: "\f136";
+}
+.i-gulp:hover:before {
+  color: #EB4A4B;
+}
+.i-css3:before {
+  content: "\f117";
+}
+.i-postgreSQL:before {
+  content: "\f16a";
+}
+.i-postgreSQL:hover:before {
+  color: #336791;
+}
+.i-play:before {
+  content: "\f167";
+}
+.i-play:hover:before {
+  color: #92D13D;
+}
+.i-react:before {
+  content: "\f16e";
+}
+.i-react:hover:before {
+  color: #61DAFB;
+}
+.i-js:before {
+  content: "\f143";
+}
+.i-js:hover:before {
+  color: #F7DF1E;
+}
+.i-scala:before {
+  content: "\f177";
+}
+.i-scala:hover:before {
+  color: #C01B03;
+}
+.i-css3-alt:before {
+  content: "\f118";
+}
+.i-css3:hover:before {
+  color: #2277FF;
+}
+.i-c:before {
+  content: "\f10d";
+}
+.i-html5-alt:before {
+  content: "\f13c";
+}
+.i-html5:hover:before {
+  color: #E34F26;
+}
+.i-haskell:before {
+  content: "\f139";
+}
+.i-haskell:hover:before {
+  color: #5D5086;
+}
+.i-angular-alt:before {
+  content: "\f102";
+}
+.i-angular-alt:hover:before {
+  color: #E23237;
+}
+.i-git:before {
+  content: "\f12a";
+}
+.i-heroku:before {
+  content: "\f13a";
+}
+.i-heroku:hover:before {
+  color: #3B0090;
+}
+.i-mySql:before {
+  content: "\f155";
+}
+.i-grunt:before {
+  content: "\f135";
+}
+.i-grunt:hover:before {
+  color: #FCAA1A;
+}
+.i-jQuery:before {
+  content: "\f145";
+}
+.i-jQuery:hover:before {
+  color: #0B67AB;
+}
+.i-node:before {
+  content: "\f15a";
+}
+.i-node:hover:before {
+  color: #83CD29;
+}
+.i-java:before {
+  content: "\f140";
+}
+.i-java:hover:before {
+  color: #1665BF;
+}
+.i-mongoDB:before {
+  content: "\f152";
+}
+.i-mongoDB:hover:before {
+  color: #69B23F;
+}
+.i-aws:before {
+  content: "\f107";
+}
+.i-aws:hover:before {
+  color: #F68D11;
+}
+.i-bootstrap:before {
+  content: "\f10c";
+}

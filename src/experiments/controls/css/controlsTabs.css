@@ -1,0 +1,34 @@
+.controlsTabs {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.controlsTabs-tab {
+    flex: 1;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.controlsTabs-tab_selected {
+    cursor: default;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #2C2C31;
+}
+
+.controlsTabs-tab_unselected:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.controlsTabs-tab-icon {
+    font-size: 20px;
+}

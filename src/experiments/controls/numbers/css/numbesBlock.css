@@ -1,0 +1,14 @@
+.numbersBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    cursor: pointer;
+}
+
+.numbersBlock-number {
+    background-color: #FFF;
+    border-radius: 50%;
+    max-width: 40px;
+    margin: 3px;
+}

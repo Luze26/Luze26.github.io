@@ -1,0 +1,32 @@
+.numberPicker {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.numberPicker-value {
+    min-width: 40px;
+    text-align: center;
+}
+
+.numberPicker-slider {
+    flex: 1;
+    position: relative;
+}
+
+.numberPicker-remove {
+    padding-left: 8px;
+}
+
+.numberPicker-remove-icon {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.numberPicker-add {
+    margin-top: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px 0;
+}
