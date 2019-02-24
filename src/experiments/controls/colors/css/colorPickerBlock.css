@@ -1,8 +1,0 @@
-.colorPickerBlock {
-    position: relative;
-    overflow-y: hidden;
-}
-
-.colorPickerBlock-content {
-    cursor: pointer;
-}
