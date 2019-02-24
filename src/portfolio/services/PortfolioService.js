@@ -2,6 +2,7 @@ import frimousseLogo from '../img/frimousse/frimousse.png';
 import primeTimeLogo from '../img/primeTime/primeTime.png';
 import addeektLogo from '../img/addeekt/addeekt.png';
 import mamieCouscousLogo from '../img/mamieCouscous/mamieCouscous.png';
+import lineMeUpLogo from '../img/lineMeUp/lineMeUp.png';
 import anotherChefLogo from '../img/anotherChef/anotherChef.png';
 import thalesLogo from '../img/thales/thales.png';
 import pepperSiteLogo from '../img/pepperSite/pepperSite.svg';
@@ -38,6 +39,24 @@ import addeektScreen6 from '../img/addeekt/screenshots/addeektScreen1.png';
 class PortfolioService {
   projects = [
     {
+      id: 'lineMeUp',
+      name: 'LineMeUp',
+      shortDescription: 'Web App & Node.js Backend',
+      description: 'Tools and analytics for daily fantasy players.',
+      image: lineMeUpLogo,
+      role: 'CTO',
+      date: '2018-2019',
+      techs: [
+        'js', 'react', 'mongo', 'node', 'html5', 'css3',
+      ],
+      links: [
+        {
+          type: 'website',
+          url: 'https://linemeup.fr',
+        }
+      ]
+    },
+    {
       id: 'primeTime',
       name: 'Prime Time',
       shortDescription: 'Android App + Web App & Node.js Backend',
@@ -46,7 +65,7 @@ class PortfolioService {
       role: 'CREATOR / DEV.',
       date: '2018',
       techs: [
-        'android', 'js', 'react-native', 'angular', 'node', 'html5', 'css3',
+        'js', 'react-native', 'react', 'mongo', 'node', 'html5', 'css3',
       ],
     },
     {
@@ -91,7 +110,7 @@ class PortfolioService {
         {src: mccScreen3, type: 'img'}, {src: mccScreen4, type: 'img'},
       ],
       role: 'CTO',
-      date: '2017-Present',
+      date: '2017-2018',
       techs: [
         'js', 'react', 'play', 'scala', 'mongoDB', 'html5', 'css3',
       ],

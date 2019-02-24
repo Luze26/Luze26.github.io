@@ -224,3 +224,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.projectCard_lineMeUp .projectCard-title {
+    background: linear-gradient(80deg, #FA5E57, #2E416B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
