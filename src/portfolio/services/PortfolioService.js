@@ -4,6 +4,7 @@ import addeektLogo from '../img/addeekt/addeekt.png';
 import mamieCouscousLogo from '../img/mamieCouscous/mamieCouscous.png';
 import lineMeUpLogo from '../img/lineMeUp/lineMeUp.png';
 import anotherChefLogo from '../img/anotherChef/anotherChef.png';
+import reacteevToolkitLogo from '../img/reacteevToolkit/reacteevToolkit.png';
 import thalesLogo from '../img/thales/thales.png';
 import pepperSiteLogo from '../img/pepperSite/pepperSite.svg';
 import lylWebsiteLogo from '../img/lylWebsite/lylWebsite.png';
@@ -41,10 +42,11 @@ class PortfolioService {
     {
       id: 'lineMeUp',
       name: 'LineMeUp',
-      shortDescription: 'Web App & Node.js Backend',
-      description: 'Tools and analytics for daily fantasy players.',
+      shortDescription: 'Tools and analytics for daily fantasy players.',
+      stackDescription: 'React App with Node.js Backend',
+      description: 'LineMeUp is a set of tools and analytics for daily fantasy players.<br/>We are at Le Tremplin (first business incubator for the sport industry).<br>As CTO, I was in charge of all the technical aspects (frontend, backend, devops, ...).',
       image: lineMeUpLogo,
-      role: 'CTO',
+      role: 'CTO / Full Stack Dev.',
       date: '2018-2019',
       techs: [
         'js', 'react', 'mongo', 'node', 'html5', 'css3',
@@ -57,12 +59,32 @@ class PortfolioService {
       ]
     },
     {
+      id: 'reacteevToolkit',
+      name: 'Reacteev Toolkit',
+      stackDescription: 'React App with Node.js Backend',
+      shortDescription: 'Platform to help big companies manage their innovation projects.',
+      description: 'Service focused on Innovation, helping companies with their innovation projects.<br/>Kind of a mix between Trello and Lean Canvas.',
+      image: reacteevToolkitLogo,
+      role: 'Lead Dev.',
+      date: '2018',
+      techs: [
+        'js', 'react', 'mongo', 'node', 'html5', 'css3',
+      ],
+      links: [
+        {
+          type: 'website',
+          url: 'http://reacteev.com/toolkit',
+        }
+      ]
+    },
+    {
       id: 'primeTime',
       name: 'Prime Time',
-      shortDescription: 'Android App + Web App & Node.js Backend',
-      description: 'Mobile app displaying a live stream where a host ask questions that players can answer live with the app (like HQ Trivia).',
+      stackDescription: 'React Native App + Web App + Node.js',
+      shortDescription: 'Mobile app displaying a live stream where players answer questions in real time.',
+      description: 'Mobile app displaying a live stream where a host ask questions that players can answer in real time with the app (like HQ Trivia).',
       image: primeTimeLogo,
-      role: 'CREATOR / DEV.',
+      role: 'Creator / Full Stack Dev.',
       date: '2018',
       techs: [
         'js', 'react-native', 'react', 'mongo', 'node', 'html5', 'css3',
@@ -71,7 +93,8 @@ class PortfolioService {
     {
       id: 'frimousse',
       name: 'Frimousse',
-      shortDescription: 'Android + iOS App',
+      stackDescription: 'React Native (Android + iOS) App',
+      shortDescription: 'Mobile app using Augmented Reality and Artificial Intelligence for fun.',
       description: 'Frimousse is a mobile application that makes cats speak in Augmented Reality. Using Artificial Intelligence to detect cats.',
       image: frimousseLogo,
       screenshots: [
@@ -79,7 +102,7 @@ class PortfolioService {
         {src: frimousseScreen3, type: 'img'}, {src: frimousseScreen4, type: 'img'},
         {src: frimousseScreen5, type: 'img'},
       ],
-      role: 'DEV.',
+      role: 'Dev.',
       date: '2017',
       techs: [
         'ios', 'android', 'js', 'react-native', 'java', 'tensorflow',
@@ -102,14 +125,15 @@ class PortfolioService {
     {
       id: 'mamieCouscous',
       name: 'Mamie Couscous',
-      shortDescription: 'Web App + Play! Backend',
+      stackDescription: 'React App + Play! Backend',
+      shortDescription: 'Food delivery service, based on a solidarity project.',
       description: 'Ecommerce website selling organic couscous with a strong solidarity approach.',
       image: mamieCouscousLogo,
       screenshots: [
         {src: mccScreen1, type: 'img'}, {src: mccScreen2, type: 'img'},
         {src: mccScreen3, type: 'img'}, {src: mccScreen4, type: 'img'},
       ],
-      role: 'CTO',
+      role: 'CTO / Full Stack Dev.',
       date: '2017-2018',
       techs: [
         'js', 'react', 'play', 'scala', 'mongoDB', 'html5', 'css3',
@@ -124,14 +148,15 @@ class PortfolioService {
     {
       id: 'hashTagNote',
       name: 'HashTagNote',
-      shortDescription: 'Android App',
-      description: 'HashTagNote is a mobile app to take notes with hashtags to easily recover them.',
+      shortDescription: 'Note taking mobile app, based on hashtags.',
+      stackDescription: 'React Native App (Android)',
+      description: 'HashTagNote is a mobile app to take notes with hashtags. Allowing the user to easily recover and organize its notes.',
       image: hashTagNoteLogo,
       screenshots: [
         {src: hashTagNoteScreen1, type: 'img'}, {src: hashTagNoteScreen2, type: 'img'},
         {src: hashTagNoteScreen3, type: 'img'}, {src: hashTagNoteScreen4, type: 'img'},
       ],
-      role: 'CREATOR / DEV.',
+      role: 'Creator / Dev.',
       date: '2017-Present',
       techs: [
         'android', 'js', 'react-native',
@@ -146,10 +171,11 @@ class PortfolioService {
     {
       id: 'addeekt',
       name: 'Addeekt Android',
-      shortDescription: 'Android App',
+      stackDescription: 'React Native App (Android)',
+      shortDescription: 'Mobile app dedicated to fan engagement.',
       description: 'Mobile app which is a social network where fans can follow their favorites celebs and have all their social networks content in one place.',
       image: addeektLogo,
-      role: 'LEAD DEV.',
+      role: 'Lead Dev.',
       date: '2017',
       techs: [
         'android', 'js', 'react-native',
@@ -173,14 +199,15 @@ class PortfolioService {
     {
       id: 'anotherChef',
       name: 'AnotherChef',
-      shortDescription: 'Web App + Play! Backend',
-      description: 'Ecommerce website where customers can organize a meal with a private chef.',
+      stackDescription: 'React App + Play! Backend',
+      shortDescription: 'Home chef service, specialized  in world cuisines.',
+      description: 'Ecommerce website where customers can organize a meal at home with a private chef.',
       image: anotherChefLogo,
       screenshots: [
         {src: anotherChefScreen1, type: 'img'}, {src: anotherChefScreen2, type: 'img'},
         {src: anotherChefScreen3, type: 'img'},
       ],
-      role: 'DEV.',
+      role: 'Full Stack Dev.',
       date: '2017',
       techs: [
         'js', 'react', 'scala', 'mongoDB', 'html5', 'css3',
@@ -195,10 +222,11 @@ class PortfolioService {
     {
       id: 'thales',
       name: 'Electronic Warfare',
-      shortDescription: 'Windows Software + Multiple Servers',
-      description: 'Electronic warfare software to help militaries.',
+      stackDescription: 'Windows Software + Multiple Servers',
+      shortDescription: 'Electronic warfare system for the militaries.',
+      description: 'Electronic warfare software to help militaries.<br/>With a micro-services architecture and CQRS.',
       image: thalesLogo,
-      role: 'DEV.',
+      role: 'Full Stack Dev.',
       date: '2015-2017',
       techs: [
         'java', 'postgreSQL', 'js', 'angular', 'html5', 'css3', 'grunt',
@@ -207,10 +235,11 @@ class PortfolioService {
     {
       id: 'pepperSite',
       name: 'Pepper Site',
-      shortDescription: 'Web App + Play! Backend',
+      stackDescription: 'AngularJS App + Play! Backend',
+      shortDescription: 'Web platform allowing users to create websites easily.',
       description: 'Website builder, letting people easily create website with a wysiwyg editor.',
       image: pepperSiteLogo,
-      role: 'CO-FOUNDER / CTO',
+      role: 'Co-founder / CTO',
       date: '2015',
       techs: [
         'java', 'play', 'mongoDB', 'js', 'angular', 'gulp', 'heroku', 'aws', 'html5', 'css3',
@@ -225,10 +254,11 @@ class PortfolioService {
     {
       id: 'lylWebsite',
       name: 'LYL Website',
-      shortDescription: 'Web App + Play! Backend',
+      stackDescription: 'AngularJS App + Play! Backend',
+      shortDescription: 'Web platform helping persons with almost no IT knowledge create their website.',
       description: 'Website builder really easy to use targeting craftsperson and restaurateur.',
       image: lylWebsiteLogo,
-      role: 'CO-FOUNDER / CTO',
+      role: 'Co-founder / CTO',
       date: '2014-2015',
       techs: [
         'java', 'play', 'mongoDB', 'js', 'angular', 'gulp', 'heroku', 'aws', 'html5', 'css3',
@@ -243,13 +273,14 @@ class PortfolioService {
     {
       id: 'aigle5',
       name: 'Aigle 5',
-      shortDescription: 'Web App + Play! Backend',
+      stackDescription: 'AngularJS App + Play! Backend',
+      shortDescription: 'Web app to create complex and powerful GIS web app.',
       description: 'Web app to create complex and powerful GIS web app.',
       image: aigle5Logo,
       screenshots: [
         {src: aigleScreen1, type: 'img'}, {src: aigleScreen2, type: 'img'},
       ],
-      role: 'APPRENTICE DEV.',
+      role: 'Full Stack Dev.',
       date: '2013-2014',
       techs: [
         'java', 'play', 'js', 'angular', 'html5', 'css3',
@@ -264,10 +295,11 @@ class PortfolioService {
     {
       id: 'ediT2',
       name: 'EdiT2',
-      shortDescription: 'Haskell Software',
+      stackDescription: 'Haskell Software',
+      shortDescription: 'Software to dispatch students accross complex learning scenarios.',
       description: 'Haskell software used to dispatch persons according to multiple patterns to increase collaborative learning.',
       image: ligLogo,
-      role: 'APPRENTICE DEV.',
+      role: 'Apprentice Dev.',
       date: '2013',
       techs: [
         'haskell',
@@ -282,10 +314,11 @@ class PortfolioService {
     {
       id: 'kimoknow',
       name: 'Kimoknow',
-      shortDescription: 'Web App + Zend Backend',
+      stackDescription: 'Web App + Zend Backend',
+      shortDescription: 'Web platform to share ideas accross organizations.',
       description: 'Web platform allowing users within an organization to share and discuss ideas.',
       image: kimoknowLogo,
-      role: 'APPRENTICE DEV.',
+      role: 'Apprentice Dev.',
       date: '2011',
       techs: [
         'java', 'neo4j', 'php', 'zf', 'jQuery', 'html', 'css',

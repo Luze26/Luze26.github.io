@@ -21,12 +21,13 @@ class ProjectCard extends React.Component {
               <h3 className='projectCard-title'>{this.props.project.name}</h3>
               <div className='projectCard-date'>{this.props.project.date}</div>
               <div className='projectCard-type'>
-                <div className='projectCard-subTitle'>TYPE:</div>
-                <div className='projectCard-label'>{this.props.project.shortDescription}</div>
+                {this.props.project.shortDescription}
+              </div>
+              <div className='projectCard-subTitle'>
+                {this.props.project.stackDescription}
               </div>
               <div className='projectCard-techs'>
-                <div className='projectCard-subTitle'>TECH:</div>
-                <div>{this.props.project.techs.map(this.renderTechIcon)}</div>
+                {this.props.project.techs.map(this.renderTechIcon)}
               </div>
             </div>
           </div>
@@ -36,9 +37,7 @@ class ProjectCard extends React.Component {
               <div className='projectCard-label'>{this.props.project.role}</div>
             </div>
             <div className='projectCard-subTitle'>DESCRIPTION:</div>
-            <div className='projectCard-text'>
-              {this.props.project.description}
-            </div>
+            <div className='projectCard-text' dangerouslySetInnerHTML={{__html: this.props.project.description}}/>
             <div className='projectCard-overlay-footer'>
               <button className='portfolio-btn'>
                 SEE MORE
