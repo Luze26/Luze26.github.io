@@ -41,7 +41,7 @@ class Portfolio extends React.Component {
             <hr className='portfolio-hr'/>
             <Link className='potfolio-experiments' to='/experiments'>
               <div><i className='i-lab'/></div>
-              Go to my Lab ! Where I do experiments that I found "fun" :)
+              Here is my Lab ! Where I experiment things that I found fun :)
             </Link>
             <div className='portfolio-projects row'>
               <PortfolioBubbles/>
