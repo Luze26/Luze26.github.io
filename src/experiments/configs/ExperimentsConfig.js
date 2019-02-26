@@ -1,8 +1,7 @@
 import DlaExperiment from '../dla/DlaExperiment';
 import dlaImage from './images/dla/dla.png';
+import tenPrintImage from './images/10print/10print.png';
 import TenPrintExperiment from '../10print/TenPrintExperiment';
-import BasicExperiment from '../basic/BasicExperiment';
-import Basic2Experiment from '../basic2/BasicExperiment';
 
 const EXPERIMENTS = [
   {
@@ -18,19 +17,10 @@ const EXPERIMENTS = [
     id: '10PRINT',
     path: '/experiments/10print',
     component: TenPrintExperiment,
+    date: '20/03/2018',
     title: '10PRINT',
-  },
-  {
-    id: 'BASIC',
-    path: '/experiments/basic',
-    component: BasicExperiment,
-    title: 'BASIC',
-  },
-  {
-    id: 'BASIC2',
-    path: '/experiments/basic2',
-    component: Basic2Experiment,
-    title: 'BASIC2',
+    number: '#002',
+    image: tenPrintImage,
   },
 ];
 

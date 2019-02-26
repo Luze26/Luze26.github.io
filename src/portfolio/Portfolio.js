@@ -4,6 +4,7 @@ import ProjectCard from './ProjectCard';
 import PortfolioBubbles from './PortfolioBubbles';
 import portfolioService from './services/PortfolioService';
 import PortfolioDrawerWithRouter from './PortfolioDrawerWithRouter';
+import {Link} from 'react-router-dom';
 
 class Portfolio extends React.Component {
 
@@ -38,6 +39,10 @@ class Portfolio extends React.Component {
               </div>
             </div>
             <hr className='portfolio-hr'/>
+            <Link className='potfolio-experiments' to='/experiments'>
+              <div><i className='i-lab'/></div>
+              Go to my Lab ! Where I do experiments that I found "fun" :)
+            </Link>
             <div className='portfolio-projects row'>
               <PortfolioBubbles/>
               {portfolioService.projects.map(this.renderProject)}

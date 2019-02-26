@@ -306,7 +306,7 @@ class PortfolioService {
       ],
       links: [
         {
-          type: 'github',
+          type: 'website',
           url: 'https://github.com/Luze26/EdiT2-Patterns',
         },
       ],

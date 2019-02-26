@@ -24,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-lab:before {
+  content: "\e90c";
+}
 .i-php:before {
   content: "\e910";
 }
@@ -43,16 +46,16 @@
   color: #68c32f;
 }
 .i-cross:before {
-  content: "\e900";
+  content: "\e903";
 }
 .i-email:before {
-  content: "\e901";
+  content: "\e904";
 }
 .i-arrow-right3:before {
-  content: "\e902";
+  content: "\e905";
 }
 .i-arrow-right1:before {
-  content: "\e903";
+  content: "\e906";
 }
 .i-apple:before, .i-apple_alt:before {
   content: "\e90d";
@@ -61,41 +64,36 @@
   color: #000;
 }
 .i-android:before, .i-android_alt:before {
-  content: "\e904";
+  content: "\e907";
 }
 .i-android:hover:before {
   color: #A5C736;
 }
 .i-github:before {
-  content: "\e905";
-}
-.i-twitter:before {
-  content: "\e906";
-}
-.i-linkedin:before {
-  content: "\e907";
-}
-.i-arrow-right2:before {
   content: "\e908";
 }
-.i-tensorflow .path1:before {
+.i-twitter:before {
   content: "\e909";
+}
+.i-linkedin:before {
+  content: "\e90a";
+}
+.i-arrow-right2:before {
+  content: "\e90b";
+}
+.i-tensorflow .path1:before {
+  content: "\e900";
   color: #C2C2C2;
 }
 .i-tensorflow .path2:before {
-  content: "\e90a";
+  content: "\e901";
   margin-left: -0.951171875em;
   color: #C2C2C2;
 }
 .i-tensorflow .path3:before {
-  content: "\e90b";
+  content: "\e902";
   margin-left: -0.951171875em;
   color: #9B9B9B;
-}
-.i-tensorflow .path4:before {
-  content: "\e90c";
-  margin-left: -0.951171875em;
-  color: #757575;
 }
 .i-tensorflow:hover .path1:before {
   color: rgb(246, 189, 58);

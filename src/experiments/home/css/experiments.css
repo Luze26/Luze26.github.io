@@ -2,12 +2,14 @@
     display: flex;
     flex: 1;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     max-width: 1200px;
     width: 100%;
     margin: auto;
     overflow-x: auto;
+    flex-wrap: wrap;
+    margin-top: 40px;
 }
 
 .experiment {
@@ -67,4 +69,24 @@
 
 .experimentSketch_padding {
     padding: 25px 25px 21px;
+}
+
+.experiments-seeOther {
+    background-color: #131116;
+    position: fixed;
+    top: 15px;
+    left: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #FFF !important;
+    text-decoration: none;
+    opacity: 0.7;
+    font-size: 13px;
+    transition: all 0.5s;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+}
+
+.experiments-seeOther:hover {
+    opacity: 1;
+    transform: translateY(-5px);
 }

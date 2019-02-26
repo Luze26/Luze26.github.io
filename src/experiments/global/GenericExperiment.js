@@ -1,5 +1,6 @@
 import React from 'react';
 import {Base64} from 'js-base64';
+import {Link} from 'react-router-dom';
 
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
@@ -34,6 +35,10 @@ class GenericExperiment extends React.PureComponent {
     this.setState({config: this.originalConfig});
   }
 
+  componentWillUnmount() {
+      this.onPause();
+  }
+
   onApply = (config) => this.setState({config: config.clone()});
 
   onPause = () => this.refs.sketch.pause();
@@ -49,6 +54,9 @@ class GenericExperiment extends React.PureComponent {
         className={this.props.className || ''}
         style={{backgroundColor: this.props.backgroundColor || this.state.config.backgroundColor.hexString}}
       >
+        <Link className='experiments-seeOther' to='/experiments'>
+          See other experiments
+        </Link>
         <SketchComponent
           ref='sketch'
           config={this.state.config}
