@@ -1,5 +1,4 @@
 import React from 'react';
-import './css/dlaExperiment.css';
 import DlaSketch from './sketch/DlaSketch';
 import DlaControlsPanel from './controls/DlaControlsPanel';
 import GenericExperiment from '../global/GenericExperiment';
@@ -9,7 +8,7 @@ class DlaExperiment extends React.PureComponent {
   render() {
     return (
       <GenericExperiment
-        className='dlaExperiment'
+        className='lab-experiment'
         configModel={DlaConfig}
         SketchComponent={DlaSketch}
         ControlPanelComponent={DlaControlsPanel}

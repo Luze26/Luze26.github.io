@@ -8,7 +8,7 @@ class TenPrintExperiment extends React.PureComponent {
   render() {
     return (
       <GenericExperiment
-        className='dlaExperiment'
+        className='lab-experiment'
         backgroundColor='#FFF'
         configModel={TenPrintConfig}
         SketchComponent={TenPrintSketch}

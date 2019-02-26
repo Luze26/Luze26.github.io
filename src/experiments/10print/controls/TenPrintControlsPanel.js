@@ -56,7 +56,7 @@ class TenPrintControlsPanel extends React.PureComponent {
   }
 
   renderPanel = (panel, index) => (
-    <div key={index} className='dlaControlsPanel-inner'>
+    <div key={index} className='lab-controlsPanel-inner'>
       {this.renderPanelContent(panel.id, panel.props)}
     </div>
   );

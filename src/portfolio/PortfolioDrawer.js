@@ -34,7 +34,7 @@ class PortfolioDrawer extends React.Component {
         break;
     }
     return (
-      <a className='portfolioDrawer-link portfolio-btn' href={link.url} alt={label} target='_blank' key={link.url}>
+      <a className='portfolioDrawer-link portfolio-btn' href={link.url} alt={label} target='_blank' key={link.url} rel='noopener noreferrer'>
         {iconClassName ? <i className={'portfolioDrawer-link-icon ' + iconClassName} /> : null}
         {label}
       </a>

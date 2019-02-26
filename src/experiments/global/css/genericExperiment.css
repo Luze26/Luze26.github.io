@@ -1,4 +1,4 @@
-.dlaExperiment {
+.lab-experiment {
     display: flex;
     min-height: 100%;
     height: 100%;
@@ -6,4 +6,14 @@
     justify-content: center;
     background-color: #131116;
     padding-right: 280px;
+}
+
+
+.lab-controlsPanel-inner {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    background-color: #2C2C31;
 }

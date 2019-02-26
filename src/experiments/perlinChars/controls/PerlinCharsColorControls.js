@@ -3,7 +3,7 @@ import ControlBlock from '../../controls/ControlBlock';
 import ColorPickerBlock from '../../controls/colors/ColorPickerBlock';
 import ExtendedColorPickerBlock from '../../controls/colors/ExtendedColorPickerBlock';
 
-class BasicColorControls extends React.Component {
+class PerlinCharsColorControls extends React.Component {
 
   onEditBackgroundColor = () => this.refs.backgroundColorPicker.navigateToColorPicker();
 
@@ -45,4 +45,4 @@ class BasicColorControls extends React.Component {
   }
 }
 
-export default BasicColorControls;
+export default PerlinCharsColorControls;

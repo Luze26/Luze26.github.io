@@ -3,28 +3,18 @@ import extendedColorUtils from '../../controls/colors/utils/ExtendedColorUtils';
 import GenericConfig from '../../global/GenericConfig';
 import PaletteColor from '../../controls/colors/models/PaletteColor';
 
-class BasicConfig extends GenericConfig {
-  static DEFAULT_CONFIG = new BasicConfig(
-    'Style 1', 1000, 600,
-    new Color(0x1A1B24),
-    new PaletteColor(
-      [
-        new Color(0xE78B58),
-        new Color(0x81C3DD),
-        new Color(0x3747C5),
-        new Color(0x4A74CF),
-        new Color(0xEA6D53),
-      ],
-    ),
-    new Color(0xFFFFFF),
-    20, 4, 8, 6,
+class PerlinCharsConfig extends GenericConfig {
+  static DEFAULT_CONFIG = new PerlinCharsConfig(
+    'Style 1', 600, 600, new Color(0xFFFFFF), 
+    new PaletteColor([new Color(0x6E1E72), new Color(0xB0254F), new Color(0xDE4126), new Color(0xEB9605)]), 
+    15, 15, 70, 30, 30, '-', 22, 0.65
   );
 
   static defaultStyles = [
-    BasicConfig.DEFAULT_CONFIG,
+    PerlinCharsConfig.DEFAULT_CONFIG,
   ];
 
-  static defaultStylesNames = BasicConfig.defaultStyles.map((style) => style.name);
+  static defaultStylesNames = PerlinCharsConfig.defaultStyles.map((style) => style.name);
 
   static fromJsObject(styleObject) {
     if (styleObject.backgroundColor && styleObject.backgroundColor._hex !== undefined) {
@@ -39,15 +29,15 @@ class BasicConfig extends GenericConfig {
     else {
       delete styleObject.colors;
     }
-    return BasicConfig.DEFAULT_CONFIG.copy(styleObject);
+    return PerlinCharsConfig.DEFAULT_CONFIG.copy(styleObject);
   }
 
   constructor() {
     super(
-      ['name', 'width', 'height', 'backgroundColor', 'colors', 'borderColor', 'margin', 'strokeWidth', 'nbCols', 'nbRows'],
+      ['name', 'width', 'height', 'backgroundColor', 'colors', 'cellWidth', 'cellHeight', 'margin', 'nbCols', 'nbRows', 'string', 'size', 'hiddenChance'],
       arguments,
     );
   }
 }
 
-export default BasicConfig;
+export default PerlinCharsConfig;

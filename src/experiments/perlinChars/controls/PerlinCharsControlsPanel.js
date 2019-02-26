@@ -1,12 +1,12 @@
 import React from 'react';
 import ControlsPanel from '../../controls/ControlsPanel';
+import PerlinCharsControls from './PerlinCharsControls';
 import ColorPickerPanel from '../../controls/colors/ColorPickerPanel';
 import ExtendedColorPickerPanel from '../../controls/colors/ExtendedColorPickerPanel';
 import NumbersPickerPanel from '../../controls/numbers/NumbersPickerPanel';
 import SharePanel from '../../controls/styles/SharePanel';
-import BasicControls from './BasicControls';
 
-class BasicControlsPanel extends React.PureComponent {
+class PerlinCharsControlsPanel extends React.PureComponent {
 
   state = {
     panelStack: [
@@ -34,7 +34,7 @@ class BasicControlsPanel extends React.PureComponent {
     let Component;
     switch (id) {
       case 'DEFAULT':
-        Component = BasicControls;
+        Component = PerlinCharsControls;
         props = this.props;
         break;
       case 'COLOR_PICKER':
@@ -56,7 +56,7 @@ class BasicControlsPanel extends React.PureComponent {
   }
 
   renderPanel = (panel, index) => (
-    <div key={index} className='dlaControlsPanel-inner'>
+    <div key={index} className='lab-controlsPanel-inner'>
       {this.renderPanelContent(panel.id, panel.props)}
     </div>
   );
@@ -70,4 +70,4 @@ class BasicControlsPanel extends React.PureComponent {
   }
 }
 
-export default BasicControlsPanel;
+export default PerlinCharsControlsPanel;

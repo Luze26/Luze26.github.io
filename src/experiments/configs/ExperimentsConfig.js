@@ -2,6 +2,8 @@ import DlaExperiment from '../dla/DlaExperiment';
 import dlaImage from './images/dla/dla.png';
 import tenPrintImage from './images/10print/10print.png';
 import TenPrintExperiment from '../10print/TenPrintExperiment';
+import simplexNoiseXStringImage from './images/simplexNoiseXString/simplexNoise.png';
+import PerlinCharsExperiment from '../perlinChars/PerlinCharsExperiment';
 
 const EXPERIMENTS = [
   {
@@ -21,6 +23,15 @@ const EXPERIMENTS = [
     title: '10PRINT',
     number: '#002',
     image: tenPrintImage,
+  },
+  {
+    id: 'SimplexNoisXSrting',
+    path: '/experiments/simplexNoiseXString',
+    component: PerlinCharsExperiment,
+    date: '12/02/2019',
+    title: 'Simplex Noise x String',
+    number: '#003',
+    image: simplexNoiseXStringImage,
   },
 ];
 

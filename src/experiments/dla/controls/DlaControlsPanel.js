@@ -1,7 +1,6 @@
 import React from 'react';
 import ControlsPanel from '../../controls/ControlsPanel';
 import DlaControls from './DlaControls';
-import './css/dlaControlsPanel.css';
 import ColorPickerPanel from '../../controls/colors/ColorPickerPanel';
 import ExtendedColorPickerPanel from '../../controls/colors/ExtendedColorPickerPanel';
 import NumbersPickerPanel from '../../controls/numbers/NumbersPickerPanel';
@@ -57,7 +56,7 @@ class DlaControlsPanel extends React.PureComponent {
   }
 
   renderPanel = (panel, index) => (
-    <div key={index} className='dlaControlsPanel-inner'>
+    <div key={index} className='lab-controlsPanel-inner'>
       {this.renderPanelContent(panel.id, panel.props)}
     </div>
   );
