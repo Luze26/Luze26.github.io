@@ -6,14 +6,15 @@
     justify-content: center;
     background-color: #131116;
     padding-right: 280px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow: auto;
 }
 
 
 .lab-controlsPanel-inner {
-    position: absolute;
-    top: 10px;
-    bottom: 10px;
-    left: 15px;
-    right: 15px;
     background-color: #2C2C31;
 }

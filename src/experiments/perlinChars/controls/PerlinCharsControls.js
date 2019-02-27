@@ -1,5 +1,4 @@
 import React from 'react';
-import ControlsPanel from '../../controls/ControlsPanel';
 import ControlsActions from '../../controls/ControlsActions';
 import ControlsTabs from '../../controls/ControlsTabs';
 import ControlsPanelTitle from '../../controls/ControlsPanelTitle';
@@ -150,7 +149,7 @@ class PerlinCharsControls extends React.PureComponent {
 
   render() {
     return (
-      <ControlsPanel>
+      <div>
         <ControlsPanelTitle
           sketchState={this.props.sketchState}
           onPause={this.props.onPause}
@@ -172,7 +171,7 @@ class PerlinCharsControls extends React.PureComponent {
             )
             : null
         }
-      </ControlsPanel>
+      </div>
     );
   }
 }

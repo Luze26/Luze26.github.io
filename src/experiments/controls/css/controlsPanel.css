@@ -1,13 +1,77 @@
-.controlsPanel {
+.controlsPanel-wrapper {
     position: fixed;
     top: 0;
     bottom: 0;
-    right: 0;
-    max-width: 280px;
-    width: 100%;
+    right: -280px;
+    width: 280px;
     background-color: #2C2C31;
     color: #D5D5D6;
+    transition: right 0.5s;
+}
+
+.controlsPanel-wrapper_extended {
+    right: 0;
+}
+
+.controlsPanel-wrapper-handle {
+    position: absolute;
+    left: -37px;
+    top: 35px;
+    background-color: #2C2C31;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+    transition: all 0.5s;
+    color: #FFF;
+}
+
+.controlsPanel-closeBtn {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    text-align: center;
+    height: 30px;
+    background-color: #D5D5D6;
+    color: #2C2C31;
+    font-size: 22px;
+    z-index: 10;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    padding-top: 3px;
+}
+
+@media (max-width: 375px) {
+    .controlsPanel-wrapper_extended {
+        width: 100%;
+        left: 0;
+    }
+
+    .controlsPanel-wrapper .controlsPanel-closeBtn {
+        display: block;
+    }
+
+    .controlsPanel-wrapper_extended .controlsPanel-wrapper-handle {
+        display: none;
+    }
+}
+
+.controlsPanel-wrapper-handle:hover {
+    opacity: 0.8;
+}
+
+.controlsPanel {
+    width: 100%;
+    height: 100%;
     padding: 10px 15px;
+    overflow: auto;
 }
 
 .controlsPanel-title {
