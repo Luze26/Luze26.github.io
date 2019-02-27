@@ -6,12 +6,7 @@
     height: 100%;
     align-items: stretch;
     font-family: 'MicroSquare', sans-serif;
-    position: fixed;
     background-color: #1F2024;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }
 
 .experimentsHome-title {

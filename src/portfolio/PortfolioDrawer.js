@@ -44,7 +44,7 @@ class PortfolioDrawer extends React.Component {
   renderScreenshot(screenshotId, screenshot) {
     return (
       <div className='portfolioDrawer-screenshots-gallery-screenshot' key={screenshotId}>
-        <img src={screenshot.src}/>
+        <img src={screenshot.src} />
       </div>
     );
   }
@@ -54,35 +54,33 @@ class PortfolioDrawer extends React.Component {
       <div>
         <i className='portfolioDrawer-close i-cross' onClick={this.close} />
         <div className='portfolioDrawer-header'>
-          <div>
-            <h1>{this.project.name}</h1>
-            <div className='portfolioDrawer-info'>
-              <div className='portfolioDrawer-info-label'>DATE:</div>
-              <div className='portfolioDrawer-info-text'>
-                {this.project.date}
-              </div>
-            </div>
-            <div className='portfolioDrawer-info'>
-              <div className='portfolioDrawer-info-label'>ROLE:</div>
-              <div className='portfolioDrawer-info-text'>
-                {this.project.role}
-              </div>
-            </div>
-            <div className='portfolioDrawer-info'>
-              <div className='portfolioDrawer-info-label'>TYPE:</div>
-              <div className='portfolioDrawer-info-text'>
-                {this.project.stackDescription}
-              </div>
-            </div>
-            <div className='portfolioDrawer-info portfolioDrawer-techs'>
-              <div className='portfolioDrawer-info-label'>STACK:</div>
-              <div className='portfolioDrawer-info-text portfolioDrawer-techs-text'>
-                {this.project.techs.map(this.renderTechIcon)}
-              </div>
-            </div>
-          </div>
+          <h1>{this.project.name}</h1>
           <div className='portfolioDrawer-header-logo-wrapper'>
             <img className='portfolioDrawer-header-logo' src={this.project.image} alt={this.project.name} />
+          </div>
+        </div>
+        <div className='portfolioDrawer-info'>
+          <div className='portfolioDrawer-info-label'>DATE:</div>
+          <div className='portfolioDrawer-info-text'>
+            {this.project.date}
+          </div>
+        </div>
+        <div className='portfolioDrawer-info'>
+          <div className='portfolioDrawer-info-label'>ROLE:</div>
+          <div className='portfolioDrawer-info-text'>
+            {this.project.role}
+          </div>
+        </div>
+        <div className='portfolioDrawer-info'>
+          <div className='portfolioDrawer-info-label'>TYPE:</div>
+          <div className='portfolioDrawer-info-text'>
+            {this.project.stackDescription}
+          </div>
+        </div>
+        <div className='portfolioDrawer-info portfolioDrawer-techs'>
+          <div className='portfolioDrawer-info-label'>STACK:</div>
+          <div className='portfolioDrawer-info-text portfolioDrawer-techs-text'>
+            {this.project.techs.map(this.renderTechIcon)}
           </div>
         </div>
         <div className='portfolioDrawer-info portfolioDrawer-description'>

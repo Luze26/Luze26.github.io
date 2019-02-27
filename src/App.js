@@ -19,7 +19,7 @@ class App extends React.Component {
     return (
       <HashRouter>
         <div className='app'>
-          <div style={{ position: 'relative', zIndex: 10, minHeight: '100%', height: '100%' }}>
+          <div style={{ position: 'relative', zIndex: 10, minHeight: '100%'}}>
             <Switch>
               <Route exact path='/experiments' component={ExperimentsHome} />
               {EXPERIMENTS.map(this.renderExperiment)}
