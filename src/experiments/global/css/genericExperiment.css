@@ -17,4 +17,10 @@
 
 .lab-controlsPanel-inner {
     background-color: #2C2C31;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 10px 15px;
+    overflow: auto;
+    width: 100%;
 }
