@@ -38,29 +38,45 @@ class PaletteColorPicker extends React.PureComponent {
   render() {
     return (
       <div className='paletteColorPicker'>
-        <PaletteColorPreview
-          value={this.props.value}
-          onClick={(colorIndex) => this.setState({selectedColorIndex: colorIndex})}
-        />
+        <label className='paletteColorPicker-random'>
+          <input
+            type='checkbox'
+            checked={!!this.props.isRandom}
+            onChange={(event) => this.props.onRandomChange(event.target.checked)}
+          />
+          Random
+        </label>
         {
-          this.props.value.length > 1 ?
-            (
-              <div className='gradientColorPicker-remove' onClick={this.onRemove}>
-                <i className='gradientColorPicker-remove-icon ic-trash-can'/>
-                DELETE
+          this.props.isRandom
+            ? null
+            : (
+              <div>
+                <PaletteColorPreview
+                  value={this.props.value}
+                  onClick={(colorIndex) => this.setState({selectedColorIndex: colorIndex})}
+                />
+                {
+                  this.props.value.length > 1 ?
+                    (
+                      <div className='gradientColorPicker-remove' onClick={this.onRemove}>
+                        <i className='gradientColorPicker-remove-icon ic-trash-can'/>
+                        DELETE
+                      </div>
+                    )
+                    : null
+                }
+                <div className='gradientColorPicker-remove' onClick={this.onAdd}>
+                  <i className='gradientColorPicker-remove-icon ic-plus'/>
+                  ADD A COLOR
+                </div>
+                <ChromePicker
+                  color={(this.props.value[this.state.selectedColorIndex] || this.props.value[this.lastSelectedColorIndex]).hexString}
+                  onChangeComplete={this.onChangeComplete}
+                  disableAlpha={this.props.disableAlpha}
+                />
               </div>
             )
-            : null
         }
-        <div className='gradientColorPicker-remove' onClick={this.onAdd}>
-          <i className='gradientColorPicker-remove-icon ic-plus'/>
-          ADD A COLOR
-        </div>
-        <ChromePicker
-          color={(this.props.value[this.state.selectedColorIndex] || this.props.value[this.lastSelectedColorIndex]).hexString}
-          onChangeComplete={this.onChangeComplete}
-          disableAlpha={this.props.disableAlpha}
-        />
       </div>
     );
   }

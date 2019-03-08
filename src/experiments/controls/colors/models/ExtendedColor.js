@@ -4,6 +4,7 @@ class ExtendedColor {
     SOLID: 0,
     PALETTE: 1,
     GRADIENT: 2,
+    RANDOM_PALETTE: 3,
   };
 
   mode;

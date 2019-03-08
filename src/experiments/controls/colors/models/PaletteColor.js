@@ -8,6 +8,7 @@ class PaletteColor extends ExtendedColor {
       palette = new PaletteColor(
         object.colors.map((color) => new Color(color)),
         object.attribute,
+        !!object.random,
       );
     }
     return palette;
@@ -15,20 +16,22 @@ class PaletteColor extends ExtendedColor {
 
   colors = [];
   attribute = null;
+  random = false;
 
-  constructor(colors, attribute) {
+  constructor(colors, attribute, random) {
     super(ExtendedColor.MODES.PALETTE);
     this.colors = colors;
     this.attribute = attribute;
+    this.random = random;
   }
 
   clone(shallow = false) {
     let clone;
     if (shallow) {
-      clone = new PaletteColor(this.colors, this.offset);
+      clone = new PaletteColor(this.colors, this.attribute, this.random);
     }
     else {
-      clone = new PaletteColor(this.colors.slice(), this.offset);
+      clone = new PaletteColor(this.colors.slice(), this.attribute, this.random);
     }
     return clone;
   }
@@ -37,6 +40,7 @@ class PaletteColor extends ExtendedColor {
     return new PaletteColor(
       changes.colors !== undefined ? changes.colors : this.colors.slice(),
       changes.attribute !== undefined ? changes.attribute : this.attribute,
+      changes.random !== undefined ? changes.random : this.random,
     );
   }
 }

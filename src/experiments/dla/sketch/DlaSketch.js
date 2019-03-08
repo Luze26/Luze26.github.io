@@ -1,8 +1,10 @@
 import React from 'react';
+import palettes from 'nice-color-palettes';
 import * as THREE from 'three';
 import colorUtils from '../../controls/colors/utils/ColorUtils';
 import Walker from './Walker';
 import ExtendedColor from '../../controls/colors/models/ExtendedColor';
+import Color from '../../controls/colors/models/Color';
 
 class DlaSketch extends React.PureComponent {
 
@@ -128,6 +130,15 @@ class DlaSketch extends React.PureComponent {
       this.addWalker();
     }
     this.props.onStateChange('RUNNING');
+    if (this.props.config.colors.mode === ExtendedColor.MODES.PALETTE && this.props.config.colors.random) {
+      const colorCount = this.random.rangeFloor(5, 6);
+      this.palette = this.random.shuffle(
+        this.random.pick(palettes),
+      ).slice(0, colorCount).map((color) => new Color(color));
+    }
+    else {
+      this.palette = null;
+    }
     this.animationFrameRequestId = requestAnimationFrame(this.onAnimationFrame);
   }
 
@@ -160,7 +171,7 @@ class DlaSketch extends React.PureComponent {
         color = colorsConfig.color.hex;
         break;
       case ExtendedColor.MODES.PALETTE:
-        color = colorUtils.getPaletteColor(colorsConfig.colors, attributePercent).hexString;
+        color = colorUtils.getPaletteColor(this.palette || colorsConfig.colors, attributePercent).hexString;
         break;
       case ExtendedColor.MODES.GRADIENT:
         color = colorUtils.getGradientColor(colorsConfig.colorStops, attributePercent);

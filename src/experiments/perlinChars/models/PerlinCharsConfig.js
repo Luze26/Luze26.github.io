@@ -6,7 +6,7 @@ import PaletteColor from '../../controls/colors/models/PaletteColor';
 class PerlinCharsConfig extends GenericConfig {
   static DEFAULT_CONFIG = new PerlinCharsConfig(
     'Style 1', 600, 600, new Color(0xFFFFFF), 
-    new PaletteColor([new Color(0x6E1E72), new Color(0xB0254F), new Color(0xDE4126), new Color(0xEB9605)]), 
+    new PaletteColor([new Color(0x6E1E72), new Color(0xB0254F), new Color(0xDE4126), new Color(0xEB9605)], null, true),
     15, 15, 70, 30, 30, '-', 22, 0.65
   );
 

@@ -5,3 +5,17 @@
     border: solid 1px #FFF;
     cursor: pointer;
 }
+
+.paletteColorPicker-random {
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.paletteColorPicker-random input {
+    width: auto;
+    margin-right: 5px;
+}

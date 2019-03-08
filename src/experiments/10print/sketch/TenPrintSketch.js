@@ -1,6 +1,8 @@
 import React from 'react';
+import palettes from 'nice-color-palettes';
 import colorUtils from '../../controls/colors/utils/ColorUtils';
 import ExtendedColor from '../../controls/colors/models/ExtendedColor';
+import Color from '../../controls/colors/models/Color';
 
 class TenPrintSketch extends React.PureComponent {
 
@@ -43,6 +45,15 @@ class TenPrintSketch extends React.PureComponent {
     this.data = [];
     this.y = 0;
     this.props.onStateChange('RUNNING');
+    if (this.props.config.colors.mode === ExtendedColor.MODES.PALETTE && this.props.config.colors.random) {
+      const colorCount = this.random.rangeFloor(5, 6);
+      this.palette = this.random.shuffle(
+        this.random.pick(palettes),
+      ).slice(0, colorCount).map((color) => new Color(color));
+    }
+    else {
+      this.palette = null;
+    }
     this.animationFrameRequestId = requestAnimationFrame(this.onAnimationFrame);
   }
 
@@ -76,7 +87,7 @@ class TenPrintSketch extends React.PureComponent {
         color = colorsConfig.color.hexString;
         break;
       case ExtendedColor.MODES.PALETTE:
-        color = colorUtils.getPaletteColor(colorsConfig.colors, this.getAttributePercent(x, y)).hexString;
+        color = colorUtils.getPaletteColor(this.palette || colorsConfig.colors, this.getAttributePercent(x, y)).hexString;
         break;
       case ExtendedColor.MODES.GRADIENT:
         color = colorUtils.getHexStringFromHex(

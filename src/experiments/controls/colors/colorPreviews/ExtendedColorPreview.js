@@ -16,7 +16,7 @@ class ExtendedColorPreview extends React.PureComponent {
         break;
       case ExtendedColor.MODES.PALETTE:
         preview = (
-          <PaletteColorPreview value={this.props.value.colors}/>
+          <PaletteColorPreview value={this.props.value.colors} isRandom={this.props.value.random}/>
         );
         break;
       case ExtendedColor.MODES.GRADIENT:

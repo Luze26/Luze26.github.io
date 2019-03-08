@@ -11,6 +11,8 @@ class ExtendedColorPicker extends React.PureComponent {
 
   onColorsChange = (colors) => this.props.onChange(this.props.value.copy({colors}));
 
+  onRandomChange = (random) => this.props.onChange(this.props.value.copy({random}));
+
   onColorStopsChange = (colorStops) => this.props.onChange(this.props.value.copy({colorStops}));
 
   renderPicker() {
@@ -28,8 +30,10 @@ class ExtendedColorPicker extends React.PureComponent {
       case ExtendedColor.MODES.PALETTE:
         picker = (
           <PaletteColorPicker
+            isRandom={this.props.value.random}
             value={this.props.value.colors}
             onChange={this.onColorsChange}
+            onRandomChange={this.onRandomChange}
             disableAlpha={this.props.disableAlpha}
           />
         );

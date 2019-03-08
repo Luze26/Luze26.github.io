@@ -29,10 +29,10 @@ class GradientColor extends ExtendedColor {
   clone(shallow = false) {
     let clone;
     if (shallow) {
-      clone = new GradientColor(this.colorStops, this.offset);
+      clone = new GradientColor(this.colorStops, this.attribute);
     }
     else {
-      clone = new GradientColor(this._cloneColorStops(), this.offset);
+      clone = new GradientColor(this._cloneColorStops(), this.attribute);
     }
     return clone;
   }

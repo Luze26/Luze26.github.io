@@ -20,10 +20,10 @@ class SolidColor extends ExtendedColor {
   clone(shallow = false) {
     let clone;
     if (shallow) {
-      clone = new SolidColor(this.color, this.offset);
+      clone = new SolidColor(this.color);
     }
     else {
-      clone = new SolidColor(this.color.clone(), this.offset);
+      clone = new SolidColor(this.color.clone());
     }
     return clone;
   }

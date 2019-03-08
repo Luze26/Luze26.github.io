@@ -15,6 +15,11 @@ class PaletteColorPreview extends React.PureComponent {
   render() {
     return (
       <div className='paletteColorPreview gradientPreview'>
+        {
+          this.props.isRandom
+            ? <div className='paletteColorPreview-random'>Random</div>
+            : null
+        }
         {this.props.value.map(this.renderColor)}
       </div>
     );
