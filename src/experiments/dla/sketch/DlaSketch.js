@@ -5,6 +5,7 @@ import colorUtils from '../../controls/colors/utils/ColorUtils';
 import Walker from './Walker';
 import ExtendedColor from '../../controls/colors/models/ExtendedColor';
 import Color from '../../controls/colors/models/Color';
+import random from 'canvas-sketch-util/random';
 
 class DlaSketch extends React.PureComponent {
 
@@ -114,6 +115,17 @@ class DlaSketch extends React.PureComponent {
   }
 
   init() {
+    this.random = random.createRandom();
+    if (this.props.config.colors.mode === ExtendedColor.MODES.PALETTE && this.props.config.colors.random) {
+      const colorCount = this.random.rangeFloor(5, 6);
+      this.palette = this.random.shuffle(
+        this.random.pick(palettes),
+      ).slice(0, colorCount).map((color) => new Color(color));
+    }
+    else {
+      this.palette = null;
+    }
+
     this.stuckWalkers = [];
     this.movingWalkers = [];
 
@@ -130,15 +142,6 @@ class DlaSketch extends React.PureComponent {
       this.addWalker();
     }
     this.props.onStateChange('RUNNING');
-    if (this.props.config.colors.mode === ExtendedColor.MODES.PALETTE && this.props.config.colors.random) {
-      const colorCount = this.random.rangeFloor(5, 6);
-      this.palette = this.random.shuffle(
-        this.random.pick(palettes),
-      ).slice(0, colorCount).map((color) => new Color(color));
-    }
-    else {
-      this.palette = null;
-    }
     this.animationFrameRequestId = requestAnimationFrame(this.onAnimationFrame);
   }
 

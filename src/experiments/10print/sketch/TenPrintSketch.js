@@ -3,6 +3,7 @@ import palettes from 'nice-color-palettes';
 import colorUtils from '../../controls/colors/utils/ColorUtils';
 import ExtendedColor from '../../controls/colors/models/ExtendedColor';
 import Color from '../../controls/colors/models/Color';
+import random from 'canvas-sketch-util/random';
 
 class TenPrintSketch extends React.PureComponent {
 
@@ -42,9 +43,7 @@ class TenPrintSketch extends React.PureComponent {
   }
 
   init() {
-    this.data = [];
-    this.y = 0;
-    this.props.onStateChange('RUNNING');
+    this.random = random.createRandom();
     if (this.props.config.colors.mode === ExtendedColor.MODES.PALETTE && this.props.config.colors.random) {
       const colorCount = this.random.rangeFloor(5, 6);
       this.palette = this.random.shuffle(
@@ -54,6 +53,10 @@ class TenPrintSketch extends React.PureComponent {
     else {
       this.palette = null;
     }
+
+    this.data = [];
+    this.y = 0;
+    this.props.onStateChange('RUNNING');
     this.animationFrameRequestId = requestAnimationFrame(this.onAnimationFrame);
   }
 
