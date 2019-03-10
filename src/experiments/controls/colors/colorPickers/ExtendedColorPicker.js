@@ -41,8 +41,10 @@ class ExtendedColorPicker extends React.PureComponent {
       case ExtendedColor.MODES.GRADIENT:
         picker = (
           <GradientColorPicker
+            isRandom={this.props.value.random}
             value={this.props.value.colorStops}
             onChange={this.onColorStopsChange}
+            onRandomChange={this.onRandomChange}
           />
         );
         break;

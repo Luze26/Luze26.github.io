@@ -1,8 +1,5 @@
 import React from 'react';
-import palettes from 'nice-color-palettes';
 import colorUtils from '../../controls/colors/utils/ColorUtils';
-import ExtendedColor from '../../controls/colors/models/ExtendedColor';
-import Color from '../../controls/colors/models/Color';
 import random from 'canvas-sketch-util/random';
 
 class TenPrintSketch extends React.PureComponent {
@@ -44,15 +41,7 @@ class TenPrintSketch extends React.PureComponent {
 
   init() {
     this.random = random.createRandom();
-    if (this.props.config.colors.mode === ExtendedColor.MODES.PALETTE && this.props.config.colors.random) {
-      const colorCount = this.random.rangeFloor(5, 6);
-      this.palette = this.random.shuffle(
-        this.random.pick(palettes),
-      ).slice(0, colorCount).map((color) => new Color(color));
-    }
-    else {
-      this.palette = null;
-    }
+    this.palette = colorUtils.getPaletteFromConfig(this.random, this.props.config.colors);
 
     this.data = [];
     this.y = 0;
@@ -83,24 +72,7 @@ class TenPrintSketch extends React.PureComponent {
   }
 
   getColor(x, y) {
-    let color;
-    const colorsConfig = this.props.config.colors;
-    switch (colorsConfig.mode) {
-      case ExtendedColor.MODES.SOLID:
-        color = colorsConfig.color.hexString;
-        break;
-      case ExtendedColor.MODES.PALETTE:
-        color = colorUtils.getPaletteColor(this.palette || colorsConfig.colors, this.getAttributePercent(x, y)).hexString;
-        break;
-      case ExtendedColor.MODES.GRADIENT:
-        color = colorUtils.getHexStringFromHex(
-          colorUtils.getGradientColor(colorsConfig.colorStops, this.getAttributePercent(x, y)),
-        );
-        break;
-      default:
-        color = 0;
-    }
-    return color;
+    return colorUtils.getColor(this.props.config.colors, this.palette, () => this.getAttributePercent(x, y));
   }
 
   onAnimationFrame = () => {

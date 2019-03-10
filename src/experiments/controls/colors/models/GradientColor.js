@@ -16,10 +16,11 @@ class GradientColor extends ExtendedColor {
   colorStops = null;
   attribute = null;
 
-  constructor(colorStops, attribute) {
+  constructor(colorStops, attribute, random) {
     super(ExtendedColor.MODES.GRADIENT);
     this.colorStops = colorStops;
     this.attribute = attribute;
+    this.random = random;
   }
 
   _cloneColorStops = () => this.colorStops.slice().map(this._cloneColorStop);
@@ -29,10 +30,10 @@ class GradientColor extends ExtendedColor {
   clone(shallow = false) {
     let clone;
     if (shallow) {
-      clone = new GradientColor(this.colorStops, this.attribute);
+      clone = new GradientColor(this.colorStops, this.attribute, this.random);
     }
     else {
-      clone = new GradientColor(this._cloneColorStops(), this.attribute);
+      clone = new GradientColor(this._cloneColorStops(), this.attribute, this.random);
     }
     return clone;
   }
@@ -41,6 +42,7 @@ class GradientColor extends ExtendedColor {
     return new GradientColor(
       changes.colorStops !== undefined ? changes.colorStops : this._cloneColorStops(),
       changes.attribute !== undefined ? changes.attribute : this.attribute,
+      changes.random !== undefined ? changes.random : this.random,
     );
   }
 }

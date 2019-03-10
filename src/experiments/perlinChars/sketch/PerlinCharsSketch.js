@@ -1,10 +1,7 @@
 import React from 'react';
 import colorUtils from '../../controls/colors/utils/ColorUtils';
-import ExtendedColor from '../../controls/colors/models/ExtendedColor';
 import {lerp} from 'canvas-sketch-util/math';
 import random from 'canvas-sketch-util/random';
-import palettes from 'nice-color-palettes';
-import Color from '../../controls/colors/models/Color';
 
 class PerlinCharsSketch extends React.PureComponent {
 
@@ -63,15 +60,7 @@ class PerlinCharsSketch extends React.PureComponent {
 
   init() {
     this.random = random.createRandom();
-    if (this.props.config.colors.mode === ExtendedColor.MODES.PALETTE && this.props.config.colors.random) {
-      const colorCount = this.random.rangeFloor(2, 6);
-      this.palette = this.random.shuffle(
-        this.random.pick(palettes),
-      ).slice(0, colorCount).map((color) => new Color(color));
-    }
-    else {
-      this.palette = null;
-    }
+    this.palette = colorUtils.getPaletteFromConfig(this.random, this.props.config.colors);
     this.points = this.createGrid().filter(() => this.random.value() > this.props.config.hiddenChance);
     this.margin = this.props.config.margin;
     this.props.onStateChange('RUNNING');
@@ -79,24 +68,7 @@ class PerlinCharsSketch extends React.PureComponent {
   }
 
   getColor() {
-    let color;
-    const colorsConfig = this.props.config.colors;
-    switch (colorsConfig.mode) {
-      case ExtendedColor.MODES.SOLID:
-        color = colorsConfig.color.hexString;
-        break;
-      case ExtendedColor.MODES.PALETTE:
-        color = colorUtils.getPaletteColor(this.palette || colorsConfig.colors, this.random.value()).hexString;
-        break;
-      case ExtendedColor.MODES.GRADIENT:
-        color = colorUtils.getHexStringFromHex(
-          colorUtils.getGradientColor(colorsConfig.colorStops, this.random.value()),
-        );
-        break;
-      default:
-        color = 0;
-    }
-    return color;
+    return colorUtils.getColor(this.props.config.colors, this.palette, this.random.value);
   }
 
   onAnimationFrame = () => {

@@ -1,10 +1,7 @@
 import React from 'react';
-import palettes from 'nice-color-palettes';
 import * as THREE from 'three';
 import colorUtils from '../../controls/colors/utils/ColorUtils';
 import Walker from './Walker';
-import ExtendedColor from '../../controls/colors/models/ExtendedColor';
-import Color from '../../controls/colors/models/Color';
 import random from 'canvas-sketch-util/random';
 
 class DlaSketch extends React.PureComponent {
@@ -116,15 +113,7 @@ class DlaSketch extends React.PureComponent {
 
   init() {
     this.random = random.createRandom();
-    if (this.props.config.colors.mode === ExtendedColor.MODES.PALETTE && this.props.config.colors.random) {
-      const colorCount = this.random.rangeFloor(5, 6);
-      this.palette = this.random.shuffle(
-        this.random.pick(palettes),
-      ).slice(0, colorCount).map((color) => new Color(color));
-    }
-    else {
-      this.palette = null;
-    }
+    this.palette = colorUtils.getPaletteFromConfig(this.random, this.props.config.colors);
 
     this.stuckWalkers = [];
     this.movingWalkers = [];
@@ -151,7 +140,8 @@ class DlaSketch extends React.PureComponent {
     return dX * dX + dY * dY;
   }
 
-  getAttributePercent(attribute) {
+  getAttributePercent = () => {
+    const attribute = this.props.config.colors.attribute;
     let percent;
     switch (attribute) {
       case 'NB_STUCK_WALKERS':
@@ -162,27 +152,11 @@ class DlaSketch extends React.PureComponent {
       default:
         percent = 0;
     }
-    return percent;
-  }
+    return percent || 0.01;
+  };
 
   getColor() {
-    let color;
-    const colorsConfig = this.props.config.colors;
-    const attributePercent = this.getAttributePercent(colorsConfig.attribute) || 0.01;
-    switch (colorsConfig.mode) {
-      case ExtendedColor.MODES.SOLID:
-        color = colorsConfig.color.hex;
-        break;
-      case ExtendedColor.MODES.PALETTE:
-        color = colorUtils.getPaletteColor(this.palette || colorsConfig.colors, attributePercent).hexString;
-        break;
-      case ExtendedColor.MODES.GRADIENT:
-        color = colorUtils.getGradientColor(colorsConfig.colorStops, attributePercent);
-        break;
-      default:
-        color = 0;
-    }
-    return color;
+    return colorUtils.getColor(this.props.config.colors, this.palette, this.getAttributePercent);
   }
 
   moveWalker(walker, index) {

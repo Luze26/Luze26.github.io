@@ -21,7 +21,13 @@ class GradientPreview extends React.PureComponent {
       <div
         className='gradientPreview'
         style={{background: GradientPreview.constructBackgroundStyle(this.props.value)}}
-      />
+      >
+        {
+          this.props.isRandom
+            ? <div className='paletteColorPreview-random'>Random</div>
+            : null
+        }
+      </div>
     );
   }
 }

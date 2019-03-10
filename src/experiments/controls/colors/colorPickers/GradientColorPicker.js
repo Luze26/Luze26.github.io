@@ -125,25 +125,41 @@ class GradientColorPicker extends React.PureComponent {
   render() {
     return (
       <div className='gradientColorPicker'>
-        <div className='gradientColorPicker-gradient'>
-          <GradientPreview value={this.props.value}/>
-          {this.renderHandles()}
-        </div>
+        <label className='paletteColorPicker-random'>
+          <input
+            type='checkbox'
+            checked={!!this.props.isRandom}
+            onChange={(event) => this.props.onRandomChange(event.target.checked)}
+          />
+          Random
+        </label>
         {
-          this.props.value.length > 2 ?
-            (
-              <div className='gradientColorPicker-remove' onClick={this.onRemoveHandle}>
-                <i className='gradientColorPicker-remove-icon ic-trash-can'/>
-                DELETE
+          this.props.isRandom
+            ? null
+            : (
+              <div>
+                <div className='gradientColorPicker-gradient'>
+                  <GradientPreview value={this.props.value}/>
+                  {this.renderHandles()}
+                </div>
+                {
+                  this.props.value.length > 2 ?
+                    (
+                      <div className='gradientColorPicker-remove' onClick={this.onRemoveHandle}>
+                        <i className='gradientColorPicker-remove-icon ic-trash-can'/>
+                        DELETE
+                      </div>
+                    )
+                    : null
+                }
+                <SolidColorPicker
+                  value={this.state.selectedColorStop.color}
+                  onChange={this.onColorChange}
+                  disableAlpha={this.props.disableAlpha}
+                />
               </div>
             )
-            : null
         }
-        <SolidColorPicker
-          value={this.state.selectedColorStop.color}
-          onChange={this.onColorChange}
-          disableAlpha={this.props.disableAlpha}
-        />
       </div>
     );
   }

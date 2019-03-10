@@ -1,3 +1,8 @@
+import Color from '../models/Color';
+import ColorStop from '../models/ColorStop';
+import ExtendedColor from '../models/ExtendedColor';
+import palettes from 'nice-color-palettes';
+
 const colorUtils = {};
 
 colorUtils.getHexFromHexString = (hexString) => {
@@ -16,7 +21,9 @@ colorUtils.getRgbFromHex = (hex) => ({
 
 colorUtils.getRgbaFromHexString = (hexString, alpha) => Object.assign({a: alpha}, colorUtils.getRgbFromHex(colorUtils.getHexFromHexString(hexString)));
 
-colorUtils.getRgbStringFromRgb = (rgb) => `rgb${rgb.a != null ? 'a' : ''}(${rgb.r},${rgb.g},${rgb.b}${rgb.a != null ? ',' + rgb.a : ''})`;
+colorUtils.getRgbStringFromRgb = (rgb) => `rgb${rgb.a != null ? 'a' : ''}(${rgb.r},${rgb.g},${rgb.b}${rgb.a != null
+  ? ',' + rgb.a
+  : ''})`;
 
 colorUtils.getHexFromRgb = (r, g, b) => (Math.round(r) << 16) + (Math.round(g) << 8) + Math.round(b);
 
@@ -87,6 +94,43 @@ colorUtils.getGradientColor = (colorStops, offset) => {
   const b = minColor.b * (1 - relativeOffset) + maxColor.b * relativeOffset;
   const rgb = colorUtils.srgbCompanding(r, g, b);
   return colorUtils.getHexFromRgb(rgb.r, rgb.g, rgb.b);
+};
+
+colorUtils.getPaletteFromConfig = (random, colorsConfig) => {
+  let palette = null;
+  if (colorsConfig.random) {
+    const colorCount = random.rangeFloor(2, 6);
+    palette = random.shuffle(
+      random.pick(palettes),
+    ).slice(0, colorCount);
+    if (colorsConfig.mode === ExtendedColor.MODES.PALETTE) {
+      palette = palette.map((color) => new Color(color));
+    }
+    else if (colorsConfig.mode === ExtendedColor.MODES.GRADIENT) {
+      palette = palette.map((color, index) => new ColorStop(new Color(color), index / (colorCount - 1)));
+    }
+  }
+  return palette;
+};
+
+colorUtils.getColor = (colorsConfig, palette, getPercentage) => {
+  let color;
+  switch (colorsConfig.mode) {
+    case ExtendedColor.MODES.SOLID:
+      color = colorsConfig.color.hexString;
+      break;
+    case ExtendedColor.MODES.PALETTE:
+      color = colorUtils.getPaletteColor(palette || colorsConfig.colors, getPercentage()).hexString;
+      break;
+    case ExtendedColor.MODES.GRADIENT:
+      color = colorUtils.getHexStringFromHex(
+        colorUtils.getGradientColor(palette || colorsConfig.colorStops, getPercentage()),
+      );
+      break;
+    default:
+      color = 0;
+  }
+  return color;
 };
 
 export default colorUtils;
