@@ -7,7 +7,7 @@
     transition-duration: .35s;
     color: #363e47;
     margin-bottom: 25px;
-    height: 278px;
+    height: 288px;
     border-radius: 4px;
 }
 
@@ -38,7 +38,7 @@
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    height: 278px;
+    height: 288px;
     transition: all 0.9s ease;
 }
 
@@ -49,12 +49,12 @@
 }
 
 .projectCard:hover .projectCard-inner {
-    top: -278px;
+    top: -288px;
     opacity: 0;
 }
 
 .projectCard-overlay {
-    bottom: -278px;
+    bottom: -288px;
     background: linear-gradient(to bottom right, rgba(10, 37, 122, 0.82), rgba(129, 64, 156, 0.75));
     color: #FFF;
     border-radius: 4px;
