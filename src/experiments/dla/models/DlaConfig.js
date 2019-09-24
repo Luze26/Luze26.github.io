@@ -31,7 +31,7 @@ class DlaConfig {
 
   static fromJsObject(styleObject) {
     if (styleObject.backgroundColor && styleObject.backgroundColor._hex !== undefined) {
-      styleObject.backgroundColor = Color.fromJsObject(styleObject.backgroundColor._hex);
+      styleObject.backgroundColor = Color.fromJsObject(styleObject.backgroundColor);
     }
     else {
       delete styleObject.backgroundColor;

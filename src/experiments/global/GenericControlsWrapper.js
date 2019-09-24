@@ -1,14 +1,11 @@
 import React from 'react';
-import ControlsActions from '../../controls/ControlsActions';
-import ControlsTabs from '../../controls/ControlsTabs';
-import ControlsPanelTitle from '../../controls/ControlsPanelTitle';
-import PerlinCharsConfig from '../models/PerlinCharsConfig';
-import PerlinCharsColorControls from './PerlinCharsColorControls';
-import PerlinCharsSettingsControls from './PerlinCharsSettingsControls';
-import StylesSelector from '../../controls/styles/StylesSelector';
-import PerlinCharsInfo from './PerlinCharsInfo';
+import ControlsActions from '../controls/ControlsActions';
+import ControlsTabs from '../controls/ControlsTabs';
+import ControlsPanelTitle from '../controls/ControlsPanelTitle';
+import StylesSelector from '../controls/styles/StylesSelector';
+import GenericControlsPanel from './GenericControlsPanel';
 
-class PerlinCharsControls extends React.PureComponent {
+class GenericControlsWrapper extends React.PureComponent {
   static TABS = [
     {
       id: 'COLORS',
@@ -35,17 +32,17 @@ class PerlinCharsControls extends React.PureComponent {
   storedStyles = [];
 
   state = {
-    tabSelectedId: PerlinCharsControls.TABS[0].id,
+    tabSelectedId: GenericControlsWrapper.TABS.filter((tab) => this.props.controlsConfig.tabs.includes(tab.id))[0].id,
     config: this.props.originalConfig,
     styles: [],
   };
 
   componentWillMount() {
-    let styles = PerlinCharsConfig.defaultStyles;
+    let styles = this.props.configModel.defaultStyles;
     try {
-      const storedStylesStr = localStorage.getItem('PerlinCharsControls-Styles');
+      const storedStylesStr = localStorage.getItem(this.props.controlsConfig.id + '-Styles');
       this.storedStyles = JSON.parse(storedStylesStr);
-      this.storedStyles = this.storedStyles.map((storedStyle) => PerlinCharsConfig.fromJsObject(storedStyle));
+      this.storedStyles = this.storedStyles.map((storedStyle) => this.props.configModel.fromJsObject(storedStyle));
       styles = styles.concat(this.storedStyles);
     }
     catch (e) {
@@ -66,7 +63,7 @@ class PerlinCharsControls extends React.PureComponent {
     if (storedIndex > 0) {
       this.storedStyles.splice(storedIndex, 1);
       try {
-        localStorage.setItem('PerlinCharsControls-Styles', JSON.stringify(this.storedStyles));
+        localStorage.setItem(this.props.controlsConfig.id + '-Styles', JSON.stringify(this.storedStyles));
       }
       catch (e) {
         //nothing to do
@@ -89,7 +86,7 @@ class PerlinCharsControls extends React.PureComponent {
     }
     this.storedStyles.push(config);
     try {
-      localStorage.setItem('PerlinCharsControls-Styles', JSON.stringify(this.storedStyles));
+      localStorage.setItem(this.props.controlsConfig.id + '-Styles', JSON.stringify(this.storedStyles));
     }
     catch (e) {
       console.error(e);
@@ -108,19 +105,21 @@ class PerlinCharsControls extends React.PureComponent {
     switch (this.state.tabSelectedId) {
       case 'COLORS':
         controls = (
-          <PerlinCharsColorControls
+          <GenericControlsPanel
             config={this.state.config}
             onChange={this.onChanges}
             navigation={this.props.navigation}
+            controlsConfig={this.props.controlsConfig.colors}
           />
         );
         break;
       case 'SETTINGS':
         controls = (
-          <PerlinCharsSettingsControls
+          <GenericControlsPanel
             config={this.state.config}
             onChange={this.onChanges}
             navigation={this.props.navigation}
+            controlsConfig={this.props.controlsConfig.settings}
           />
         );
         break;
@@ -129,7 +128,7 @@ class PerlinCharsControls extends React.PureComponent {
           <StylesSelector
             config={this.state.config}
             styles={this.state.styles}
-            defaultStylesNames={PerlinCharsConfig.defaultStylesNames}
+            defaultStylesNames={this.props.configModel.defaultStylesNames}
             selectedStyleName={this.state.config.name}
             onLoad={this.onLoadStyle}
             onSave={this.onSaveStyle}
@@ -139,7 +138,8 @@ class PerlinCharsControls extends React.PureComponent {
         );
         break;
       case 'INFO':
-        controls = <PerlinCharsInfo/>;
+        const InfoPanel = this.props.controlsConfig.InfoPanel;
+        controls = <InfoPanel/>;
         break;
       default:
         controls = null;
@@ -156,7 +156,7 @@ class PerlinCharsControls extends React.PureComponent {
           onResume={this.props.onResume}
         />
         <ControlsTabs
-          tabs={PerlinCharsControls.TABS}
+          tabs={GenericControlsWrapper.TABS.filter((tab) => this.props.controlsConfig.tabs.includes(tab.id))}
           tabSelectedId={this.state.tabSelectedId}
           onChange={this.onTabChange}
         />
@@ -176,4 +176,4 @@ class PerlinCharsControls extends React.PureComponent {
   }
 }
 
-export default PerlinCharsControls;
+export default GenericControlsWrapper;

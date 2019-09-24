@@ -13,7 +13,12 @@ class SharePanel extends React.PureComponent {
   };
 
   render() {
-    const shareUrl = window.location ? window.location.host + window.location.pathname + '?config=' + Base64.encode(JSON.stringify(this.props.value)) : '';
+    let shareUrl = '';
+    if (window.location) {
+      const queryIndex = window.location.href.indexOf('?');
+      shareUrl = queryIndex > 0 ? window.location.href.substring(0, queryIndex) : window.location.href;
+    }
+    shareUrl += '?config=' + Base64.encode(JSON.stringify(this.props.value));
     return (
       <GenericStackedPanel
         title={this.props.title}
@@ -22,13 +27,14 @@ class SharePanel extends React.PureComponent {
       >
         <div className='sharePanel-url'>
           <input
+            style={{marginBottom: 10}}
             ref='input'
             value={shareUrl}
             readOnly={true}
           />
           <ControlBtn
             icon='ic-copy'
-            label=''
+            label='Copy'
             onClick={this.onCopy}
           />
         </div>

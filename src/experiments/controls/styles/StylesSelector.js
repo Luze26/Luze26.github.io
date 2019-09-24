@@ -19,7 +19,9 @@ class StylesSelector extends React.Component {
     },
   );
 
-  onLoad = () => this.props.onLoad(this.props.styles.find((style) => style.name === this.state.selectedStyleName));
+  onLoad = () => {
+    this.props.onLoad(this.props.styles.find((style) => style.name === this.state.selectedStyleName));
+  };
 
   onDelete = () => {
     this.props.onDelete(this.state.selectedStyleName);
@@ -70,12 +72,12 @@ class StylesSelector extends React.Component {
           {
             !this.props.defaultStylesNames.includes(this.state.selectedStyleName)
               ? (
-              <ControlBtn
-                onClick={this.onDelete}
-                icon='ic-trash-can'
-                label='DELETE'
-              />
-            )
+                <ControlBtn
+                  onClick={this.onDelete}
+                  icon='ic-trash-can'
+                  label='DELETE'
+                />
+              )
               : null
           }
         </div>

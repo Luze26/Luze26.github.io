@@ -21,6 +21,11 @@
     margin: 25px;
 }
 
+.experiment_placeholder {
+    margin: 25px;
+    width: 290px;
+}
+
 .experiment:hover {
     transform: translateY(-10px) translateZ(0);
 }
@@ -63,7 +68,8 @@
 
 .experimentSketch_shadow {
     border-radius: 4px;
-    box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, 0.15);
+    overflow: hidden;
 }
 
 .experimentSketch_padding {

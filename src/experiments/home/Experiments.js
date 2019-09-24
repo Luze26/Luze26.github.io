@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import EXPERIMENTS from '../configs/ExperimentsConfig';
-import './css/experiments.css'
+import './css/experiments.css';
 
 class Experiments extends React.Component {
 
@@ -21,9 +21,19 @@ class Experiments extends React.Component {
   );
 
   render() {
+    const nbPlaceholders = EXPERIMENTS.length % 3 ? 3 - EXPERIMENTS.length % 3 : 0;
     return (
       <div className='experiments'>
         {EXPERIMENTS.map(this.renderExperiment)}
+        {
+          new Array(nbPlaceholders)
+            .fill(null)
+            .map(
+              (foo, index) => (
+                <div key={index} className='experiment_placeholder'/>
+              ),
+            )
+        }
       </div>
     );
   }

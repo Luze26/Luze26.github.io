@@ -20,7 +20,20 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    padding: 10px 15px;
+    padding: 10px 30px;
     overflow: auto;
     width: 100%;
+}
+
+.controlCheckbox-label {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 100;
+    opacity: 0.8;
+}
+
+.controlCheckbox input {
+    width: auto;
+    margin: 0 8px 0 0;
+    transform: translateY(1px);
 }
