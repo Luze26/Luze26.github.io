@@ -10,9 +10,12 @@ class GenericControlsPanel extends React.Component {
 
   onEditColors = () => this.refs.colorsPicker.navigateToColorPicker();
 
-  renderControlBlockInput = (controlBlockConfig) => {
-    const value = this.props.config[controlBlockConfig.id];
-    const onChange = (value) => this.props.onChange({[controlBlockConfig.id]: value});
+  renderControlBlockInput = (controlBlockConfig, value) => {
+    const onChange = (value) => this.props.onChange({
+      [controlBlockConfig.id]: controlBlockConfig.transformOnChange
+        ? controlBlockConfig.transformOnChange(value)
+        : value,
+    });
 
     let inputElem = null;
     switch (controlBlockConfig.type) {
@@ -64,6 +67,17 @@ class GenericControlsPanel extends React.Component {
           </label>
         );
         break;
+      case 'DROPDOWN':
+        inputElem = (
+          <select value={value} onChange={(event) => onChange(event.target.value)}>
+            {controlBlockConfig.inputProps.items.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        );
+        break;
     }
     return inputElem;
   };
@@ -71,6 +85,10 @@ class GenericControlsPanel extends React.Component {
   renderControlBlock = (controlBlockConfig) => {
     if (controlBlockConfig.isAvailable && !controlBlockConfig.isAvailable(this.props.config)) {
       return null;
+    }
+    let value = this.props.config[controlBlockConfig.id];
+    if (controlBlockConfig.transformValue) {
+      value = controlBlockConfig.transformValue(value);
     }
     return (
       <ControlBlock
@@ -80,7 +98,7 @@ class GenericControlsPanel extends React.Component {
         editIcon={controlBlockConfig.editIcon}
         onEdit={() => this.refs[controlBlockConfig.id].navigateToColorPicker()}
       >
-        {this.renderControlBlockInput(controlBlockConfig)}
+        {this.renderControlBlockInput(controlBlockConfig, value)}
       </ControlBlock>
     );
   };

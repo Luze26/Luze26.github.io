@@ -2,12 +2,13 @@ import Color from '../../controls/colors/models/Color';
 import extendedColorUtils from '../../controls/colors/utils/ExtendedColorUtils';
 import GenericConfig from '../../global/GenericConfig';
 import PaletteColor from '../../controls/colors/models/PaletteColor';
+import {GRID_PATTERN_SETS} from '../sketch/GridPatterns';
 
 class GridConfig extends GenericConfig {
   static DEFAULT_CONFIG = new GridConfig(
     'Style 1', 600, 600, new Color(0x131116),
     new PaletteColor([new Color(0x6E1E72), new Color(0xB0254F), new Color(0xDE4126), new Color(0xEB9605)], null, true),
-    40, 100, 100, 0.45, 1, true
+    40, 30, 30, 0.45, 1, true, GRID_PATTERN_SETS[0].patterns,
   );
 
   static defaultStyles = [
@@ -34,7 +35,10 @@ class GridConfig extends GenericConfig {
 
   constructor() {
     super(
-      ['name', 'width', 'height', 'backgroundColor', 'colors', 'margin', 'nbCols', 'nbRows', 'hiddenChance', 'thickness', 'randomThickness'],
+      [
+        'name', 'width', 'height', 'backgroundColor', 'colors', 'margin', 'nbCols', 'nbRows', 'hiddenChance',
+        'thickness', 'randomThickness', 'patterns',
+      ],
       arguments,
     );
   }

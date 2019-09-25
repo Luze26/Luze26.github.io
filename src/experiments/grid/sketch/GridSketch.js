@@ -2,6 +2,7 @@ import React from 'react';
 import colorUtils from '../../controls/colors/utils/ColorUtils';
 import {lerp} from 'canvas-sketch-util/math';
 import random from 'canvas-sketch-util/random';
+import {drawPattern} from './GridPatterns';
 
 class GridSketch extends React.PureComponent {
 
@@ -72,7 +73,7 @@ class GridSketch extends React.PureComponent {
   }
 
   onAnimationFrame = () => {
-    const {width, height, backgroundColor, thickness, randomThickness} = this.props.config;
+    const {width, height, backgroundColor, thickness, randomThickness, patterns} = this.props.config;
     const {ctx, margin, points} = this;
 
     ctx.fillStyle = backgroundColor.hexString;
@@ -82,43 +83,12 @@ class GridSketch extends React.PureComponent {
     const halfCellHeight = (height - 2 * margin) / ((this.props.config.nbRows - 1) * 2);
     let isUp = false;
 
-    points.forEach(({position: [u, v], size, color, noise}) => {
+    points.forEach(({position: [u, v], size, color}) => {
       const x = lerp(margin, width - margin, u);
       const y = lerp(margin, height - margin, v);
-      ctx.strokeStyle = color;
-      ctx.beginPath();
-      ctx.moveTo(x - halfCellWidth, y + (halfCellHeight * (isUp ? -1 : 1)));
-      const rand = this.random.pick([1, 2, 3]);
-      switch (rand) {
-        case 1:
-          ctx.lineTo(
-            x + halfCellWidth,
-            y + (halfCellHeight * (isUp ? -1 : 1)),
-          );
-          break;
-        case 2:
-          ctx.lineTo(
-            x + halfCellWidth,
-            y + (halfCellHeight * (isUp ? 1 : -1)),
-          );
-          isUp = !isUp;
-          break;
-        case 3:
-          ctx.lineTo(
-            x - halfCellWidth,
-            y + (halfCellHeight * (isUp ? 1 : -1)),
-          );
-          ctx.lineTo(
-            x + halfCellWidth,
-            y + (halfCellHeight * (isUp ? 1 : -1)),
-          );
-          isUp = !isUp;
-          break;
-
-      }
-      ctx.lineWidth = (randomThickness ? this.random.gaussian() : 1) * thickness;
-      ctx.lineCap = 'round';
-      ctx.stroke();
+      const patternThickness = (randomThickness ? this.random.gaussian() : 1) * thickness;
+      const patternName = this.random.pick(patterns);
+      isUp = drawPattern(patternName, ctx, x, y, halfCellWidth, halfCellHeight, isUp, color, patternThickness);
     });
 
     this.props.onStateChange('FINISHED');

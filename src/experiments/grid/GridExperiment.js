@@ -2,6 +2,7 @@ import React from 'react';
 import GridConfig from './models/GridConfig';
 import GenericExperimentWithControls from '../global/GenericExperimentWithControls';
 import GridSketch from './sketch/GridSketch';
+import {GRID_PATTERN_SETS} from './sketch/GridPatterns';
 
 class GridExperiment extends React.PureComponent {
 
@@ -50,6 +51,26 @@ class GridExperiment extends React.PureComponent {
           doNotShowTitle: true,
           type: 'CHECKBOX',
           showValue: true,
+        },
+        {
+          id: 'patterns',
+          title: 'Patterns',
+          type: 'DROPDOWN',
+          transformValue: (patterns) => {
+            const patternSet = GRID_PATTERN_SETS.find(
+              (set) =>
+                set.patterns.length === patterns.length &&
+                !patterns.find((pattern) => !set.patterns.includes(pattern)),
+            );
+            return patternSet ? patternSet.label : null;
+          },
+          transformOnChange: (patternLabel) => {
+            const patternSet = GRID_PATTERN_SETS.find((patternSet) => patternSet.label === patternLabel);
+            return patternSet.patterns;
+          },
+          inputProps: {
+            items: GRID_PATTERN_SETS.map((set) => set.label),
+          },
         },
       ],
     },
