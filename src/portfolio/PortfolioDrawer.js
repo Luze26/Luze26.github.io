@@ -2,10 +2,15 @@ import React from 'react';
 import './css/portfolioDrawer.css';
 import portfolioService from './services/PortfolioService';
 import TechIcon from './TechIcon';
+import ImageOverlay from './ImageOverlay';
 
 class PortfolioDrawer extends React.Component {
 
   project = undefined;
+
+  state = {
+    overlayImage: null,
+  };
 
   componentWillMount() {
     this.project = portfolioService.getProjectById(this.props.match.params.projectId);
@@ -15,7 +20,7 @@ class PortfolioDrawer extends React.Component {
 
   stopPropagation = (event) => event.stopPropagation();
 
-  renderTechIcon = (tech) => <TechIcon key={tech} name={tech} />;
+  renderTechIcon = (tech) => <TechIcon key={tech} name={tech}/>;
 
   renderLink = (link) => {
     let iconClassName = null;
@@ -34,8 +39,9 @@ class PortfolioDrawer extends React.Component {
         break;
     }
     return (
-      <a className='portfolioDrawer-link portfolio-btn' href={link.url} alt={label} target='_blank' key={link.url} rel='noopener noreferrer'>
-        {iconClassName ? <i className={'portfolioDrawer-link-icon ' + iconClassName} /> : null}
+      <a className='portfolioDrawer-link portfolio-btn' href={link.url} alt={label} target='_blank' key={link.url}
+         rel='noopener noreferrer'>
+        {iconClassName ? <i className={'portfolioDrawer-link-icon ' + iconClassName}/> : null}
         {label}
       </a>
     );
@@ -43,8 +49,12 @@ class PortfolioDrawer extends React.Component {
 
   renderScreenshot(screenshotId, screenshot) {
     return (
-      <div className='portfolioDrawer-screenshots-gallery-screenshot' key={screenshotId}>
-        <img src={screenshot.src} />
+      <div
+        key={screenshotId}
+        className='portfolioDrawer-screenshots-gallery-screenshot'
+        onClick={() => this.setState({overlayImage: screenshot.src})}
+      >
+        <img src={screenshot.src}/>
       </div>
     );
   }
@@ -52,11 +62,11 @@ class PortfolioDrawer extends React.Component {
   renderProjectInfo() {
     return (
       <div>
-        <i className='portfolioDrawer-close i-cross' onClick={this.close} />
+        <i className='portfolioDrawer-close i-cross' onClick={this.close}/>
         <div className='portfolioDrawer-header'>
           <h1>{this.project.name}</h1>
           <div className='portfolioDrawer-header-logo-wrapper'>
-            <img className='portfolioDrawer-header-logo' src={this.project.image} alt={this.project.name} />
+            <img className='portfolioDrawer-header-logo' src={this.project.image} alt={this.project.name}/>
           </div>
         </div>
         <div className='portfolioDrawer-info'>
@@ -87,7 +97,7 @@ class PortfolioDrawer extends React.Component {
           <div className='portfolioDrawer-info-label'>DESCRIPTION:</div>
           <div
             className='portfolioDrawer-description-text portfolioDrawer-info-text'
-            dangerouslySetInnerHTML={{ __html: this.project.description }}
+            dangerouslySetInnerHTML={{__html: this.project.description}}
           />
         </div>
         <div className='portfolioDrawer-links'>
@@ -108,6 +118,7 @@ class PortfolioDrawer extends React.Component {
       </div>
     );
   }
+
   render() {
     return (
       <div className='portfolioDrawer' onClick={this.close}>
@@ -117,6 +128,10 @@ class PortfolioDrawer extends React.Component {
         >
           {this.renderProjectInfo()}
         </div>
+        <ImageOverlay
+          image={this.state.overlayImage}
+          onClose={() => this.setState({overlayImage: null})}
+        />
       </div>
     );
   }

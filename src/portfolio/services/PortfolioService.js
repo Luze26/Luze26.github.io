@@ -36,16 +36,52 @@ import addeektScreen3 from '../img/addeekt/screenshots/addeektScreen5.jpeg';
 import addeektScreen4 from '../img/addeekt/screenshots/addeektScreen6.jpeg';
 import addeektScreen5 from '../img/addeekt/screenshots/addeektScreen3.jpeg';
 import addeektScreen6 from '../img/addeekt/screenshots/addeektScreen1.png';
+import lineMeUpScreen1 from '../img/lineMeUp/screenshots/screen1.png';
+import gamerCoachLogo from '../img/gamerCoach/logo.jpg';
+import gamerCoachScreen1 from '../img/gamerCoach/screenshots/screen1.png';
+import gamerCoachScreen2 from '../img/gamerCoach/screenshots/screen2.png';
+import gamerCoachScreen3 from '../img/gamerCoach/screenshots/screen3.png';
+import reacteevToolkitScreen1 from '../img/reacteevToolkit/screenshots/screen1.png';
+import reacteevToolkitScreen2 from '../img/reacteevToolkit/screenshots/screen2.png';
+import reacteevToolkitScreen3 from '../img/reacteevToolkit/screenshots/screen3.png';
+import reacteevToolkitScreen4 from '../img/reacteevToolkit/screenshots/screen4.png';
 
 class PortfolioService {
   projects = [
+    {
+      id: 'gamerCoach',
+      name: 'GamerCoach',
+      shortDescription: 'Coach for video games.',
+      stackDescription: 'React App with Node.js Backend',
+      description: 'GamerCoach is a platform where anyone can book a private lesson with professional gamers on a wide range of video games.',
+      image: gamerCoachLogo,
+      screenshots: [
+        {src: gamerCoachScreen1, type: 'img'},
+        {src: gamerCoachScreen2, type: 'img'},
+        {src: gamerCoachScreen3, type: 'img'},
+      ],
+      role: 'Freelance / Lead Full Stack Dev.',
+      date: '2019',
+      techs: [
+        'js', 'react', 'mongo', 'node', 'html5', 'css3',
+      ],
+      links: [
+        {
+          type: 'website',
+          url: 'https://www.gamercoach.com',
+        },
+      ],
+    },
     {
       id: 'lineMeUp',
       name: 'LineMeUp',
       shortDescription: 'Tools and analytics for daily fantasy players.',
       stackDescription: 'React App with Node.js Backend',
-      description: 'LineMeUp is a set of tools and analytics for daily fantasy players.<br/>We are at Le Tremplin (first business incubator for the sport industry).<br>As CTO, I was in charge of all the technical aspects (frontend, backend, devops, ...).',
+      description: 'LineMeUp is a set of tools and analytics for daily fantasy players.<br/>We were at Le Tremplin (first business incubator for the sport industry).<br>As CTO, I was in charge of all the technical aspects (frontend, backend, devops, ...).<br>Apart from the main application, we also worked on chatbots, chrome plugin and other small fantasy applications.',
       image: lineMeUpLogo,
+      screenshots: [
+        {src: lineMeUpScreen1, type: 'img'},
+      ],
       role: 'CTO / Full Stack Dev.',
       date: '2018-2019',
       techs: [
@@ -55,8 +91,8 @@ class PortfolioService {
         {
           type: 'website',
           url: 'https://linemeup.fr',
-        }
-      ]
+        },
+      ],
     },
     {
       id: 'reacteevToolkit',
@@ -65,6 +101,12 @@ class PortfolioService {
       shortDescription: 'Platform to help big companies manage their innovation projects.',
       description: 'Service focused on Innovation, helping companies with their innovation projects.<br/>Kind of a mix between Trello and Lean Canvas.',
       image: reacteevToolkitLogo,
+      screenshots: [
+        {src: reacteevToolkitScreen1, type: 'img'},
+        {src: reacteevToolkitScreen2, type: 'img'},
+        {src: reacteevToolkitScreen3, type: 'img'},
+        {src: reacteevToolkitScreen4, type: 'img'},
+      ],
       role: 'Lead Dev.',
       date: '2018',
       techs: [
@@ -74,8 +116,8 @@ class PortfolioService {
         {
           type: 'website',
           url: 'http://reacteev.com/toolkit',
-        }
-      ]
+        },
+      ],
     },
     {
       id: 'primeTime',
@@ -108,10 +150,6 @@ class PortfolioService {
         'ios', 'android', 'js', 'react-native', 'java', 'tensorflow',
       ],
       links: [
-        {
-          type: 'website',
-          url: 'https://frimousse.co',
-        },
         {
           type: 'android',
           url: 'https://play.google.com/store/apps/details?id=com.mvpstars.frimousse',

@@ -3,7 +3,6 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import ExperimentsHome from './experiments/home/ExperimentsHome';
 import EXPERIMENTS from './experiments/configs/ExperimentsConfig';
 import Portfolio from './portfolio/Portfolio';
-import BackgroundCanvas from './BackgroundCanvas';
 
 class App extends React.Component {
   renderExperiment = (experiment) => (
